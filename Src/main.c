@@ -169,6 +169,8 @@ int main(void)
   				index =8;
   			}
 
+
+
   		}
   		if(flag == 2)
   		{
@@ -183,12 +185,16 @@ int main(void)
 
   		if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_0)==0)
   		{
+
   			flag =1;
+  			//sw1 좌로이동
 
   		}
   		else if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_1)==0)
   		{
+
   			flag =2;
+  			//sw2 우로이동
   		}
 
 
