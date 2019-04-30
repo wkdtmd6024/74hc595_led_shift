@@ -149,7 +149,9 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   volatile uint8_t index = 0;
-  	volatile char flag = 0;
+  volatile char flag = 0;
+  volatile uint8_t pattern = 0;
+
 
   	while (1)
   	{
@@ -157,9 +159,9 @@ int main(void)
   		if(flag == 1)
   		{
   			index = (index - 1)%8;
-  			uint8_t pattern = 1<<index;
+  			pattern = 1<<index;
 
-  			ByteDataWrite(pattern);
+  			ByteDataWrite(~(pattern));
 
   			HAL_Delay(300);
   			if(index==0)
@@ -170,11 +172,10 @@ int main(void)
   		}
   		if(flag == 2)
   		{
-
-  			uint8_t pattern = 1<<index;
+  			pattern = 1<<index;
   			index = (index + 1)%8;
 
-  			ByteDataWrite(pattern);
+  			ByteDataWrite(~(pattern));
 
   			HAL_Delay(300);
 
